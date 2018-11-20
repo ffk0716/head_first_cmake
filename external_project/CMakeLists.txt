@@ -11,6 +11,13 @@ ExternalProject_Add(gtest1
     -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
     -DCMAKE_CXX_FLAGS=-fPIC)
 
+ExternalProject_Get_Property(gtest1 INSTALL_DIR SOURCE_DIR BINARY_DIR STAMP_DIR)
+message("EP_BASE mode")
+message("install: ${INSTALL_DIR}")
+message("source:  ${SOURCE_DIR}")
+message("binary:  ${BINARY_DIR}")
+message("stamp:   ${STAMP_DIR}")
+
 ExternalProject_Add(gtest2
     GIT_REPOSITORY git@github.com:abseil/googletest.git
     PREFIX gtest2
@@ -19,3 +26,9 @@ ExternalProject_Add(gtest2
     -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR>
     -DCMAKE_CXX_FLAGS=-fPIC)
 
+ExternalProject_Get_Property(gtest2 INSTALL_DIR SOURCE_DIR BINARY_DIR STAMP_DIR)
+message("PREFIX mode")
+message("install: ${INSTALL_DIR}")
+message("source:  ${SOURCE_DIR}")
+message("binary:  ${BINARY_DIR}")
+message("stamp:   ${STAMP_DIR}")
